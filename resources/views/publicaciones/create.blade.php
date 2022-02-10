@@ -6,7 +6,7 @@
     
 
 <h1>Crear una publicación</h1>
-<form method="post" action="{{ route('publicaciones.store') }}">
+<form method="post" action="{{ route('publicaciones.create') }}">
     @csrf
     @if ($errors->any())
         @foreach ($errors->all() as $error)
@@ -37,6 +37,8 @@
 <small class="text-danger">*{{$message}}</small>
 <br>
 @enderror
+
+
     <label>
         <br>
            <input type="checkbox" name="caducable" value="caducable"/>  <label>Caducable</label> <br>

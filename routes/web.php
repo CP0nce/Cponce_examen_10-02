@@ -19,8 +19,7 @@ use App\Http\Controllers\PublicacionController;
 // Route::get('/', HomeController::class);
 
  // Create
-Route::get("/", [PublicacionController::class, "create"])->name("publicaiones.create");
-// Route::post("/publicaciones", [PublicacionController::class, "store"])->name("publicaciones.store");
+Route::post("/", [PublicacionController::class, "create"])->name("publicaiones.create");
 
 
 // Auth::routes();
