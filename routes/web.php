@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicacionController;
 
 /*
@@ -14,8 +15,14 @@ use App\Http\Controllers\PublicacionController;
 |
 */
 
-Route::get('/', [PublicacionController::class, 'create']);
+//Home
+// Route::get('/', HomeController::class);
 
-Auth::routes();
+ // Create
+Route::get("/", [PublicacionController::class, "create"])->name("publicaiones.create");
+// Route::post("/publicaciones", [PublicacionController::class, "store"])->name("publicaciones.store");
+
+
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

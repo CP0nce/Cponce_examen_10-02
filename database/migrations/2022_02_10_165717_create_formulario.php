@@ -15,10 +15,11 @@ class CreateFormulario extends Migration
     {
         Schema::create('formulario', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->string('extracto');
+            $table->text('titulo');
+            $table->text('extracto');
             $table->text('contenido');
-            $table->string('checkbox');
+            $table->boolean('caducable');
+            $table->boolean('comentable');
             $table->string('acceso');
             $table->timestamps();
             

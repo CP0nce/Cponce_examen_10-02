@@ -1,23 +1,42 @@
+@extends('layouts.plantilla')
+
+@section('title', 'publicacion create')
+
+@section('content')
+    
+
 <h1>Crear una publicación</h1>
-<form method="post" action="{{ route('espadas.store') }}">
+<form method="post" action="{{ route('publicaciones.store') }}">
     @csrf
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <li> {{ $error }}</li>
         @endforeach
     @endif
-    <label>
-        Título de la publicación
-        <input type="text" name="titulo" value="{{ old('titulo') }}"><br>
-    </label>
-    <label>
-        Extracto publicación
-        <input type="text" name="extractor" value="{{ old('extractor') }}"/><br>
-    </label>
-    <label>
-        Contenido de la publicación
-        <textarea name="contenido" value="{{ old('contenido') }}"></textarea><br>
-    </label>
+    <label>@lang('Titulo')<br> <input class="form-control" type="text" name="titulo"
+        value="{{ old('titulo'), $post->titulo}}" required></label>
+@error('titulo')
+<br>
+<small class="text-danger">*{{$message}}</small>
+<br>
+@enderror
+
+<label>@lang('Extracto')<br> <input class="form-control" type="text" name="extracto"
+    value="{{ old('extracto'), $post->extracto}}" required></label>
+@error('extracto')
+<br>
+<small class="text-danger">*{{$message}}</small>
+<br>
+@enderror
+
+
+<label>@lang('Contenido')<br> <input class="form-control" type="text" name="contenido"
+    value="{{ old('contenido'), $post->contenido}}" required></label>
+@error('contenido')
+<br>
+<small class="text-danger">*{{$message}}</small>
+<br>
+@enderror
     <label>
         <br>
            <input type="checkbox" name="caducable" value="caducable"/>  <label>Caducable</label> <br>
@@ -32,3 +51,5 @@
     </select><br>
     <button>Crear</button>
 </form>
+
+@endsection
