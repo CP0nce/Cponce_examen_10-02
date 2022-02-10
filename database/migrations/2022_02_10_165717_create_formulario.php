@@ -21,6 +21,7 @@ class CreateFormulario extends Migration
             $table->string('checkbox');
             $table->string('acceso');
             $table->timestamps();
+            
         });
     }
 
